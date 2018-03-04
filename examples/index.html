@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>logDiff example</title>
+</head>
+
+<body>
+  <h1>Check devtools console...</h1>
+
+  <script>
+    (async () => {
+      try {
+        scriptUrl = '../dist/logdiff.esm.js'
+        const { default: logDiff } = await import(scriptUrl);
+        window.logDiff = logDiff;
+        console.log('logDiff loaded!');
+
+        const lhs = {
+          name: 'first object',
+          nested: {
+            cool: false,
+            old: 'fashion',
+            list: ['one', 'two'],
+          },
+          you: {
+            cant: {
+              touch: 'this',
+            },
+          },
+        };
+
+        const rhs = {
+          name: 'second object',
+          nested: {
+            cool: true,
+            list: ['one', 'two', 'three'],
+          },
+        }
+
+        logDiff(lhs, rhs);
+
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  </script>
+</body>
+
+</html>
