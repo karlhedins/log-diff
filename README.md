@@ -49,7 +49,7 @@ This way logDiff can be loaded like so:
 (async () => {
   try {
     // Specify where logdiff.esm.js is located
-    scriptUrl = '';
+    const scriptUrl = 'https://logdfiff.firebaseapp.com/logdiff.esm.js';
     const { default: logDiff } = await import(scriptUrl);
     window.logDiff = logDiff;
     console.log('logDiff loaded!');
